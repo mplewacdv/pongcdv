@@ -8,6 +8,7 @@ public class BallController : MonoBehaviour
     public float speed = 9f;
     public Vector3 vel;
     public bool isPlaying;
+    public ScoreManager scoreManager;
 
     void Start()
     {
@@ -70,12 +71,12 @@ public class BallController : MonoBehaviour
     {
         if (transform.position.x > 0)
         {
-            print("Left Player scores");
+            scoreManager.IncrementLeftPlayerScore();
         }
         
         if (transform.position.x < 0)
         {
-            print("Right Player scores");
+            scoreManager.IncrementRightPlayerScore();
         }
 
         ResetBall();
