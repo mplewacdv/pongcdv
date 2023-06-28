@@ -83,7 +83,7 @@ public class BallController : MonoBehaviour
         {
             PlayerController playerController = collision.gameObject.GetComponent<PlayerController>();
             playerController.transform.localScale *= 0.5f;
-            Destroy(gameObject);
+            Destroy(collision.gameObject);
         }
 
         ResetBall();
