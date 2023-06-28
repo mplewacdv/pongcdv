@@ -73,12 +73,20 @@ public class BallController : MonoBehaviour
         {
             scoreManager.IncrementLeftPlayerScore();
         }
-        
+
         if (transform.position.x < 0)
         {
             scoreManager.IncrementRightPlayerScore();
         }
 
+        if (collision.gameObject.GetComponent<PowerUp>())
+        {
+            PlayerController playerController = collision.gameObject.GetComponent<PlayerController>();
+            playerController.transform.localScale *= 0.5f;
+            Destroy(gameObject);
+        }
+
         ResetBall();
+
     }
 }
