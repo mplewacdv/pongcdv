@@ -65,6 +65,7 @@ public class BallController : MonoBehaviour
         newVelocityWithOffset += new Vector3(Random.Range(-.5f, .5f), Random.Range(-.5f, .5f));
         rb2D.velocity = newVelocityWithOffset.normalized * speed;
         vel = rb2D.velocity;
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -79,14 +80,8 @@ public class BallController : MonoBehaviour
             scoreManager.IncrementRightPlayerScore();
         }
 
-        if (collision.gameObject.GetComponent<PowerUp>())
-        {
-            PlayerController playerController = collision.gameObject.GetComponent<PlayerController>();
-            playerController.transform.localScale *= 0.5f;
-            Destroy(collision.gameObject);
-        }
-
         ResetBall();
 
     }
 }
+
